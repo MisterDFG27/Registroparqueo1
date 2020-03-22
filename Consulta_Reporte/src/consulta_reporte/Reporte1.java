@@ -7,21 +7,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
-
 public class Reporte1 extends javax.swing.JFrame {
 
     /**
      * Creates new form Reporte1
      */
     public Reporte1() {
-        initComponents();  
+        initComponents();
     }
-    
+
     datosP cc = new datosP();
     Connection cn = cc.conexion();
 
     void mostrarregistro(String valor) {
-      
+
         String sql = "";
         if (valor.equals("")) {
             sql = "SELECT * FROM registro1";
@@ -29,12 +28,7 @@ public class Reporte1 extends javax.swing.JFrame {
             sql = "SELECT * FROM registro1 WHERE Idregistro='" + valor + "'";
         }
     }
-        
 
-   
-
-  
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -63,8 +57,7 @@ public class Reporte1 extends javax.swing.JFrame {
         txtmon_pes = new javax.swing.JTextField();
         txtmon_liv = new javax.swing.JTextField();
         txtcant_liv = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel2 = new javax.swing.JLabel();
+        btnlimpiar = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -84,6 +77,11 @@ public class Reporte1 extends javax.swing.JFrame {
         getContentPane().add(btnreporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, -1, -1));
 
         btnsalir2.setText("Cierre caja");
+        btnsalir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalir2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnsalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 90, -1));
 
         btnsalir3.setText("Salir");
@@ -124,18 +122,43 @@ public class Reporte1 extends javax.swing.JFrame {
         getContentPane().add(txtmon_pes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 50, 30));
         getContentPane().add(txtmon_liv, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 50, 30));
         getContentPane().add(txtcant_liv, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 50, 30));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
 
-        jLabel2.setText("Prueba");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, -1, -1));
+        btnlimpiar.setText("Limpiar");
+        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        
-         mostrarregistro("");
+
+        mostrarregistro("");
     }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btnsalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalir2ActionPerformed
+        int liv = Integer.parseInt(txtmon_liv.getText());
+        int pes = Integer.parseInt(txtmon_pes.getText());
+        int mot = Integer.parseInt(txtmon_mot.getText());
+
+        int suma=liv+pes+mot;
+        
+         txttotal.setText("" + suma);
+
+    }//GEN-LAST:event_btnsalir2ActionPerformed
+
+    private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
+       txttotal.setText("");
+       txtmon_liv.setText("");
+       txtmon_mot.setText("");
+       txtmon_pes.setText("");
+       txtcant_liv.setText("");
+       txtcant_mot.setText("");
+       txtcant_pes.setText("");
+    }//GEN-LAST:event_btnlimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,14 +197,13 @@ public class Reporte1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnreporte;
     private javax.swing.JButton btnsalir2;
     private javax.swing.JButton btnsalir3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
