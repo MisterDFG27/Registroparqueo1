@@ -47,7 +47,6 @@ public class Reporte1 extends javax.swing.JFrame {
         btnsalir2 = new javax.swing.JButton();
         btnsalir3 = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
-        txtfecha = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
@@ -64,6 +63,8 @@ public class Reporte1 extends javax.swing.JFrame {
         txtmon_pes = new javax.swing.JTextField();
         txtmon_liv = new javax.swing.JTextField();
         txtcant_liv = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -95,7 +96,6 @@ public class Reporte1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 120, 30));
-        getContentPane().add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 168, 35));
 
         jLabel5.setText("Vehiculo Pesado:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 90, 20));
@@ -124,6 +124,10 @@ public class Reporte1 extends javax.swing.JFrame {
         getContentPane().add(txtmon_pes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 50, 30));
         getContentPane().add(txtmon_liv, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 50, 30));
         getContentPane().add(txtcant_liv, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 50, 30));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+
+        jLabel2.setText("Prueba");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -173,9 +177,11 @@ public class Reporte1 extends javax.swing.JFrame {
     private javax.swing.JButton btnreporte;
     private javax.swing.JButton btnsalir2;
     private javax.swing.JButton btnsalir3;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -189,7 +195,6 @@ public class Reporte1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtcant_liv;
     private javax.swing.JTextField txtcant_mot;
     private javax.swing.JTextField txtcant_pes;
-    private com.toedter.calendar.JDateChooser txtfecha;
     private javax.swing.JTextField txtmon_liv;
     private javax.swing.JTextField txtmon_mot;
     private javax.swing.JTextField txtmon_pes;
