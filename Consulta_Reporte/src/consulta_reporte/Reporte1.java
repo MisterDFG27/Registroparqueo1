@@ -5,30 +5,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class Reporte1 extends javax.swing.JFrame {
-
     /**
+
      * Creates new form Reporte1
      */
     public Reporte1() {
         initComponents();
     }
-
+    
     datosP cc = new datosP();
-    Connection cn = cc.conexion();
-
-    void mostrarregistro(String valor) {
-
-        String sql = "";
-        if (valor.equals("")) {
-            sql = "SELECT * FROM registro1";
-        } else {
-            sql = "SELECT * FROM registro1 WHERE Idregistro='" + valor + "'";
-        }
-    }
-
+      Connection cn = cc.conexion();
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,7 +29,7 @@ public class Reporte1 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnreporte = new javax.swing.JButton();
-        btnsalir2 = new javax.swing.JButton();
+        btncierre = new javax.swing.JButton();
         btnsalir3 = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -58,6 +49,7 @@ public class Reporte1 extends javax.swing.JFrame {
         txtmon_liv = new javax.swing.JTextField();
         txtcant_liv = new javax.swing.JTextField();
         btnlimpiar = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -76,13 +68,13 @@ public class Reporte1 extends javax.swing.JFrame {
         btnreporte.setText("Reporte 2");
         getContentPane().add(btnreporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, -1, -1));
 
-        btnsalir2.setText("Cierre caja");
-        btnsalir2.addActionListener(new java.awt.event.ActionListener() {
+        btncierre.setText("Cierre caja");
+        btncierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsalir2ActionPerformed(evt);
+                btncierreActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 90, -1));
+        getContentPane().add(btncierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 90, -1));
 
         btnsalir3.setText("Salir");
         getContentPane().add(btnsalir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 530, -1, -1));
@@ -130,25 +122,39 @@ public class Reporte1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, -1, -1));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 150, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+       ResultSet rs;
+       String consulta = "SELECT count(*) FROM `registro` WHERE fk_tipoVehiculo = '1' ";
+       datosP con = new datosP(cc.conexion(),consulta);
+       
+       if(con.getError()==null){
+           
+           rs = con.getResultado();
+                   
+           try{
+           String count = rs.getString("COUNT(*)");
+           } catch (SQLException ex) {
+               Logger.getLogger(Reporte1.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
 
-        mostrarregistro("");
     }//GEN-LAST:event_btnbuscarActionPerformed
 
-    private void btnsalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalir2ActionPerformed
+    private void btncierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncierreActionPerformed
         int liv = Integer.parseInt(txtmon_liv.getText());
         int pes = Integer.parseInt(txtmon_pes.getText());
         int mot = Integer.parseInt(txtmon_mot.getText());
 
         int suma=liv+pes+mot;
         
-         txttotal.setText("" + suma);
 
-    }//GEN-LAST:event_btnsalir2ActionPerformed
+         txttotal.setText("" + suma);
+    }//GEN-LAST:event_btncierreActionPerformed
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
        txttotal.setText("");
@@ -197,10 +203,11 @@ public class Reporte1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btncierre;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnreporte;
-    private javax.swing.JButton btnsalir2;
     private javax.swing.JButton btnsalir3;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
