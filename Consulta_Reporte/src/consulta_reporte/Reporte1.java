@@ -16,7 +16,100 @@ public class Reporte1 extends javax.swing.JFrame {
      */
     public Reporte1() {
         initComponents();
+        setLocationRelativeTo(null);
     }
+    
+    
+    //cantidad vehiculo liviano
+    void mostrardatosVL(String valor) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Cantidad");
+
+
+        tbcantliv.setModel(modelo);
+        String sql = "";
+        if (valor.equals("")) {
+            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '1' ";
+
+        }
+        String[] datos = new String[1];
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                datos[0] = rs.getString(1);
+                
+
+                modelo.addRow(datos);
+            }
+            tbcantliv.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
+    //cantidad vehiculo Pesado
+    void mostrardatosVP(String valor) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Cantidad");
+
+
+        tbcantp.setModel(modelo);
+        String sql = "";
+        if (valor.equals("")) {
+            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '2' ";
+
+        }
+        String[] datos = new String[1];
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                datos[0] = rs.getString(1);
+                
+
+                modelo.addRow(datos);
+            }
+            tbcantp.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
+    //cantidad Moto
+    void mostrardatosM(String valor) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Cantidad");
+
+
+        tbcantm.setModel(modelo);
+        String sql = "";
+        if (valor.equals("")) {
+            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '3' ";
+
+        }
+        String[] datos = new String[1];
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+
+                datos[0] = rs.getString(1);
+                
+
+                modelo.addRow(datos);
+            }
+            tbcantm.setModel(modelo);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
     
     
     @SuppressWarnings("unchecked")
@@ -34,21 +127,25 @@ public class Reporte1 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txttotal = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        txtcant_mot = new javax.swing.JTextField();
-        txtmon_mot = new javax.swing.JTextField();
-        txtcant_pes = new javax.swing.JTextField();
-        txtmon_pes = new javax.swing.JTextField();
-        txtmon_liv = new javax.swing.JTextField();
-        txtcant_liv = new javax.swing.JTextField();
         btnlimpiar = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbcantm = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tbcantp = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tbcantliv = new javax.swing.JTable();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -59,13 +156,13 @@ public class Reporte1 extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 250, 42));
 
         jLabel3.setText("Motocicletas:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 80, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 80, 20));
 
         jLabel4.setText("Fecha");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
         btnreporte.setText("Reporte 2");
-        getContentPane().add(btnreporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 530, -1, -1));
+        getContentPane().add(btnreporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 640, -1, -1));
 
         btncierre.setText("Cierre caja");
         btncierre.addActionListener(new java.awt.event.ActionListener() {
@@ -73,10 +170,10 @@ public class Reporte1 extends javax.swing.JFrame {
                 btncierreActionPerformed(evt);
             }
         });
-        getContentPane().add(btncierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 440, 90, -1));
+        getContentPane().add(btncierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 590, 90, -1));
 
         btnsalir3.setText("Salir");
-        getContentPane().add(btnsalir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 530, -1, -1));
+        getContentPane().add(btnsalir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 640, -1, -1));
 
         btnbuscar.setText("Buscar");
         btnbuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,35 +181,23 @@ public class Reporte1 extends javax.swing.JFrame {
                 btnbuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 120, 30));
+        getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 120, 30));
 
         jLabel5.setText("Vehiculo Pesado:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 90, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 90, 20));
 
         jLabel6.setText("Vehiculo Liviano:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 80, 20));
-        getContentPane().add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 50, 30));
-
-        jLabel8.setText("Cantidad");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 50, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 80, 20));
+        getContentPane().add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 570, 110, 30));
 
         jLabel9.setText("Tipo vehiculo");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 80, 20));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 80, 20));
 
-        jLabel10.setText("Total Monto");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 80, 20));
-
-        jLabel11.setText("Monto");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 40, 20));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 420, 10));
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 420, 10));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 420, 10));
-        getContentPane().add(txtcant_mot, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 50, 30));
-        getContentPane().add(txtmon_mot, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 50, 30));
-        getContentPane().add(txtcant_pes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 50, 30));
-        getContentPane().add(txtmon_pes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 50, 30));
-        getContentPane().add(txtmon_liv, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 50, 30));
-        getContentPane().add(txtcant_liv, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 50, 30));
+        jLabel10.setText("Total Monto:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, 70, 30));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 420, 10));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 420, 10));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 420, 10));
 
         btnlimpiar.setText("Limpiar");
         btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,36 +205,154 @@ public class Reporte1 extends javax.swing.JFrame {
                 btnlimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, -1, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 150, 30));
+        getContentPane().add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 620, -1, -1));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 150, 30));
+
+        jTable1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null}
+            },
+            new String [] {
+                "Monto"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 60, 60));
+
+        tbcantm.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tbcantm.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tbcantm.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tbcantm);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 60, 60));
+
+        jTable3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTable3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null}
+            },
+            new String [] {
+                "Monto"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable3);
+        if (jTable3.getColumnModel().getColumnCount() > 0) {
+            jTable3.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 60, 60));
+
+        tbcantp.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tbcantp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tbcantp.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(tbcantp);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 60, 60));
+
+        jTable5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jTable5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null}
+            },
+            new String [] {
+                "Monto"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jTable5);
+        if (jTable5.getColumnModel().getColumnCount() > 0) {
+            jTable5.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 60, 60));
+
+        tbcantliv.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tbcantliv.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tbcantliv.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(tbcantliv);
+
+        getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 60, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-       
-
+       mostrardatosVL("");
+       mostrardatosVP("");
+       mostrardatosM("");
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btncierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncierreActionPerformed
-        int liv = Integer.parseInt(txtmon_liv.getText());
+       /* int liv = Integer.parseInt(tbcantliv.get);
         int pes = Integer.parseInt(txtmon_pes.getText());
         int mot = Integer.parseInt(txtmon_mot.getText());
 
         int suma=liv+pes+mot;
         
 
-         txttotal.setText("" + suma);
+         txttotal.setText("" + suma);*/
     }//GEN-LAST:event_btncierreActionPerformed
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
-       txttotal.setText("");
+      /* txttotal.setText("");
        txtmon_liv.setText("");
        txtmon_mot.setText("");
        txtmon_pes.setText("");
        txtcant_liv.setText("");
        txtcant_mot.setText("");
-       txtcant_pes.setText("");
+       txtcant_pes.setText("");*/
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
     /**
@@ -196,23 +399,29 @@ public class Reporte1 extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField txtcant_liv;
-    private javax.swing.JTextField txtcant_mot;
-    private javax.swing.JTextField txtcant_pes;
-    private javax.swing.JTextField txtmon_liv;
-    private javax.swing.JTextField txtmon_mot;
-    private javax.swing.JTextField txtmon_pes;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable tbcantliv;
+    private javax.swing.JTable tbcantm;
+    private javax.swing.JTable tbcantp;
     private javax.swing.JTextField txttotal;
     // End of variables declaration//GEN-END:variables
+ datosP cc = new datosP();
+    Connection cn = cc.conexion();
 }
