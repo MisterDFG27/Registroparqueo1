@@ -18,8 +18,7 @@ public class Reporte1 extends javax.swing.JFrame {
         initComponents();
     }
     
-    datosP cc = new datosP();
-      Connection cn = cc.conexion();
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -128,20 +127,7 @@ public class Reporte1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-       ResultSet rs;
-       String consulta = "SELECT count(*) FROM `registro` WHERE fk_tipoVehiculo = '1' ";
-       datosP con = new datosP(cc.conexion(),consulta);
        
-       if(con.getError()==null){
-           
-           rs = con.getResultado();
-                   
-           try{
-           String count = rs.getString("COUNT(*)");
-           } catch (SQLException ex) {
-               Logger.getLogger(Reporte1.class.getName()).log(Level.SEVERE, null, ex);
-           }
-       }
 
     }//GEN-LAST:event_btnbuscarActionPerformed
 
