@@ -220,7 +220,6 @@ public class Reporte1 extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         btnlimpiar = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbmont3 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -233,6 +232,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont1 = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
         tbcantliv = new javax.swing.JTable();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -260,6 +260,11 @@ public class Reporte1 extends javax.swing.JFrame {
         getContentPane().add(btncierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 590, 90, -1));
 
         btnsalir3.setText("Salir");
+        btnsalir3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalir3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnsalir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 640, -1, -1));
 
         btnbuscar.setText("Buscar");
@@ -293,7 +298,6 @@ public class Reporte1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 620, -1, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 150, 30));
 
         tbmont3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tbmont3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -378,6 +382,7 @@ public class Reporte1 extends javax.swing.JFrame {
         jScrollPane6.setViewportView(tbcantliv);
 
         getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 60, 60));
+        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 112, 130, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -408,6 +413,10 @@ public class Reporte1 extends javax.swing.JFrame {
        txtcant_mot.setText("");
        txtcant_pes.setText("");*/
     }//GEN-LAST:event_btnlimpiarActionPerformed
+
+    private void btnsalir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalir3ActionPerformed
+       dispose();
+    }//GEN-LAST:event_btnsalir3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,7 +459,7 @@ public class Reporte1 extends javax.swing.JFrame {
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnreporte;
     private javax.swing.JButton btnsalir3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
