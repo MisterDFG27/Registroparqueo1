@@ -10,22 +10,21 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class Reporte1 extends javax.swing.JFrame {
-    /**
 
+    /**
+     *
      * Creates new form Reporte1
      */
     public Reporte1() {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
-    
+
     //cantidad vehiculo liviano
     void mostrardatosVL(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Cantidad");
-
 
         tbcantliv.setModel(modelo);
         String sql = "";
@@ -40,7 +39,6 @@ public class Reporte1 extends javax.swing.JFrame {
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                
 
                 modelo.addRow(datos);
             }
@@ -49,13 +47,12 @@ public class Reporte1 extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
-    
+
     //cantidad vehiculo Pesado
     void mostrardatosVP(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Cantidad");
-
 
         tbcantp.setModel(modelo);
         String sql = "";
@@ -70,7 +67,6 @@ public class Reporte1 extends javax.swing.JFrame {
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                
 
                 modelo.addRow(datos);
             }
@@ -79,13 +75,12 @@ public class Reporte1 extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
-    
+
     //cantidad Moto
     void mostrardatosM(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Cantidad");
-
 
         tbcantm.setModel(modelo);
         String sql = "";
@@ -100,7 +95,6 @@ public class Reporte1 extends javax.swing.JFrame {
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                
 
                 modelo.addRow(datos);
             }
@@ -109,12 +103,12 @@ public class Reporte1 extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
+
     //monto liviano
     void mostrardatosML(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Cantidad");
-
 
         tbmont1.setModel(modelo);
         String sql = "";
@@ -129,7 +123,6 @@ public class Reporte1 extends javax.swing.JFrame {
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                
 
                 modelo.addRow(datos);
             }
@@ -138,12 +131,12 @@ public class Reporte1 extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
+
     //monto de pesados
     void mostrardatosMP(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Cantidad");
-
 
         tbmont2.setModel(modelo);
         String sql = "";
@@ -158,7 +151,6 @@ public class Reporte1 extends javax.swing.JFrame {
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                
 
                 modelo.addRow(datos);
             }
@@ -167,12 +159,12 @@ public class Reporte1 extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
+
     //Monto de motos
     void mostrardatosMM(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Cantidad");
-
 
         tbmont3.setModel(modelo);
         String sql = "";
@@ -187,7 +179,6 @@ public class Reporte1 extends javax.swing.JFrame {
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                
 
                 modelo.addRow(datos);
             }
@@ -196,9 +187,19 @@ public class Reporte1 extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
-    
-    
-    
+
+    void limpiartabla() {
+        int filas = tbmont1.getRowCount();
+        tbmont2.getRowCount();
+        tbmont3.getRowCount();
+        tbcantliv.getRowCount();
+        tbcantp.getRowCount();
+        tbcantm.getRowCount();
+        for (int i = 0; i < filas; i++) {
+            tbmont1.getRowCount();
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -388,13 +389,13 @@ public class Reporte1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-       mostrardatosVL("");
-       mostrardatosVP("");
-       mostrardatosM("");
+        mostrardatosVL("");
+        mostrardatosVP("");
+        mostrardatosM("");
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btncierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncierreActionPerformed
-       /* int liv = Integer.parseInt(tbcantliv.get);
+        /* int liv = Integer.parseInt(tbcantliv.get);
         int pes = Integer.parseInt(txtmon_pes.getText());
         int mot = Integer.parseInt(txtmon_mot.getText());
 
@@ -405,7 +406,9 @@ public class Reporte1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btncierreActionPerformed
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
-      /* txttotal.setText("");
+        limpiartabla();
+
+        /* txttotal.setText("");
        txtmon_liv.setText("");
        txtmon_mot.setText("");
        txtmon_pes.setText("");
@@ -415,7 +418,7 @@ public class Reporte1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
     private void btnsalir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalir3ActionPerformed
-       dispose();
+        dispose();
     }//GEN-LAST:event_btnsalir3ActionPerformed
 
     /**
