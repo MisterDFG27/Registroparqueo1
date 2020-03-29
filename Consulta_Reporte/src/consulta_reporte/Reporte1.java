@@ -196,7 +196,12 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantp.getRowCount();
         tbcantm.getRowCount();
         for (int i = 0; i < filas; i++) {
-            tbmont1.getRowCount();
+            tbmont1.getRowCount(0);
+             tbmont2.getRowCount(0);
+        tbmont3.getRowCount(0);
+        tbcantliv.getRowCount(0);
+        tbcantp.getRowCount(0);
+        tbcantm.getRowCount(0);
         }
     }
 
