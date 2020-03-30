@@ -113,7 +113,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont1.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '1' ";
+            sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 1 ";
 
         }
         String[] datos = new String[1];
@@ -141,7 +141,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont2.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '1' ";
+            sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 2 ";
 
         }
         String[] datos = new String[1];
@@ -169,7 +169,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont3.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '1' ";
+            sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 3 ";
 
         }
         String[] datos = new String[1];
@@ -196,12 +196,21 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantp.getRowCount();
         tbcantm.getRowCount();
         for (int i = 0; i < filas; i++) {
+
             tbmont1.getRowCount();
              tbmont2.getRowCount();
         tbmont3.getRowCount();
         tbcantliv.getRowCount();
         tbcantp.getRowCount();
         tbcantm.getRowCount();
+
+         /*   tbmont1.getRowCount(0);
+             tbmont2.getRowCount(0);
+        tbmont3.getRowCount(0);
+        tbcantliv.getRowCount(0);
+        tbcantp.getRowCount(0);
+        tbcantm.getRowCount(0);*/
+
         }
     }
 
@@ -240,6 +249,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantliv = new javax.swing.JTable();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -421,8 +431,11 @@ public class Reporte1 extends javax.swing.JFrame {
         getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 112, 130, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consulta_reporte/Parqueo2.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("hola");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 670));
+
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -501,6 +514,7 @@ public class Reporte1 extends javax.swing.JFrame {
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnreporte;
     private javax.swing.JButton btnsalir3;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
