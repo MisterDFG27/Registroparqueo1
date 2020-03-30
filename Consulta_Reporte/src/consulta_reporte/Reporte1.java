@@ -113,7 +113,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont1.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '1' ";
+            sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 1 ";
 
         }
         String[] datos = new String[1];
@@ -141,7 +141,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont2.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '1' ";
+            sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 2 ";
 
         }
         String[] datos = new String[1];
@@ -169,7 +169,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont3.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '1' ";
+            sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 3 ";
 
         }
         String[] datos = new String[1];
@@ -196,12 +196,12 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantp.getRowCount();
         tbcantm.getRowCount();
         for (int i = 0; i < filas; i++) {
-            tbmont1.getRowCount(0);
+         /*   tbmont1.getRowCount(0);
              tbmont2.getRowCount(0);
         tbmont3.getRowCount(0);
         tbcantliv.getRowCount(0);
         tbcantp.getRowCount(0);
-        tbcantm.getRowCount(0);
+        tbcantm.getRowCount(0);*/
         }
     }
 
