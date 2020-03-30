@@ -144,8 +144,9 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont2.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT Sum(montototal) From registro a INNER JOIN factura b on b.fk_registro = a.id_registo where fecha= '"+txtfecha.getText()+"' and fk_tipoVehiculo =  2 "
+            sql ="SELECT Sum(montototal) From registro a INNER JOIN factura b on b.fk_registro = a.id_registo where fecha= '"+txtfecha.getText()+"' and fk_tipoVehiculo = 2 "
 ;
+
 
         }
         String[] datos = new String[1];
@@ -156,6 +157,7 @@ public class Reporte1 extends javax.swing.JFrame {
 
                 datos[0] = rs.getString(1);
                
+
                 modelo.addRow(datos);
             }
             tbmont2.setModel(modelo);
@@ -163,7 +165,6 @@ public class Reporte1 extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }
-
     //Monto de motos
     void mostrardatosMM(String valor) {
 
@@ -173,7 +174,9 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont3.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql ="SELECT Sum(montototal) From registro a INNER JOIN factura b on b.fk_registro = a.id_registo where fecha= '"+txtfecha.getText()+"' and fk_tipoVehiculo = 3 ";
+            sql ="SELECT Sum(montototal) From registro a INNER JOIN factura b on b.fk_registro = a.id_registo where fecha= '"+txtfecha.getText()+"' and fk_tipoVehiculo = 3 "
+;
+
 
         }
         String[] datos = new String[1];
@@ -183,7 +186,8 @@ public class Reporte1 extends javax.swing.JFrame {
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                
+               
+
                 modelo.addRow(datos);
             }
             tbmont3.setModel(modelo);
