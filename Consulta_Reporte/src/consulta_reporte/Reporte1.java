@@ -116,13 +116,14 @@ public class Reporte1 extends javax.swing.JFrame {
             sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 1 ";
 
         }
-        String[] datos = new String[1];
+        String[] datos = new String[2];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
 
                 modelo.addRow(datos);
             }
@@ -144,14 +145,14 @@ public class Reporte1 extends javax.swing.JFrame {
             sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 2 ";
 
         }
-        String[] datos = new String[1];
+        String[] datos = new String[2];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-
+                datos[1] = rs.getString(2);
                 modelo.addRow(datos);
             }
             tbmont2.setModel(modelo);
@@ -172,14 +173,14 @@ public class Reporte1 extends javax.swing.JFrame {
             sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 3 ";
 
         }
-        String[] datos = new String[1];
+        String[] datos = new String[2];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-
+                datos[1] = rs.getString(2);
                 modelo.addRow(datos);
             }
             tbmont3.setModel(modelo);
