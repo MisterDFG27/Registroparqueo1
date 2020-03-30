@@ -196,12 +196,12 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantp.getRowCount();
         tbcantm.getRowCount();
         for (int i = 0; i < filas; i++) {
-            tbmont1.getRowCount(0);
-             tbmont2.getRowCount(0);
-        tbmont3.getRowCount(0);
-        tbcantliv.getRowCount(0);
-        tbcantp.getRowCount(0);
-        tbcantm.getRowCount(0);
+            tbmont1.getRowCount();
+             tbmont2.getRowCount();
+        tbmont3.getRowCount();
+        tbcantliv.getRowCount();
+        tbcantp.getRowCount();
+        tbcantm.getRowCount();
         }
     }
 
@@ -239,32 +239,48 @@ public class Reporte1 extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         tbcantliv = new javax.swing.JTable();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("            Reporte General Parqueo Guapileño S.A.");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 250, 42));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 340, 42));
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Motocicletas:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 80, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 100, 20));
 
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Fecha");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 50, -1));
 
+        btnreporte.setBackground(new java.awt.Color(0, 0, 0));
+        btnreporte.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        btnreporte.setForeground(new java.awt.Color(255, 255, 51));
         btnreporte.setText("Reporte 2");
         getContentPane().add(btnreporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 640, -1, -1));
 
+        btncierre.setBackground(new java.awt.Color(0, 0, 0));
+        btncierre.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        btncierre.setForeground(new java.awt.Color(255, 255, 0));
         btncierre.setText("Cierre caja");
         btncierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncierreActionPerformed(evt);
             }
         });
-        getContentPane().add(btncierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 590, 90, -1));
+        getContentPane().add(btncierre, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 590, 110, -1));
 
+        btnsalir3.setBackground(new java.awt.Color(0, 0, 0));
+        btnsalir3.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        btnsalir3.setForeground(new java.awt.Color(255, 255, 0));
         btnsalir3.setText("Salir");
         btnsalir3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,6 +289,9 @@ public class Reporte1 extends javax.swing.JFrame {
         });
         getContentPane().add(btnsalir3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 640, -1, -1));
 
+        btnbuscar.setBackground(new java.awt.Color(0, 0, 0));
+        btnbuscar.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        btnbuscar.setForeground(new java.awt.Color(255, 255, 0));
         btnbuscar.setText("Buscar");
         btnbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,22 +300,33 @@ public class Reporte1 extends javax.swing.JFrame {
         });
         getContentPane().add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 120, 30));
 
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 0));
         jLabel5.setText("Vehiculo Pesado:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 90, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 130, 20));
 
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 0));
         jLabel6.setText("Vehiculo Liviano:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 80, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 130, 20));
         getContentPane().add(txttotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 570, 110, 30));
 
+        jLabel9.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 51));
         jLabel9.setText("Tipo vehiculo");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 80, 20));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 110, 20));
 
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 0));
         jLabel10.setText("Total Monto:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, 70, 30));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 570, 100, 30));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 420, 10));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 420, 10));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 420, 10));
 
+        btnlimpiar.setBackground(new java.awt.Color(0, 0, 0));
+        btnlimpiar.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        btnlimpiar.setForeground(new java.awt.Color(255, 255, 0));
         btnlimpiar.setText("Limpiar");
         btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,6 +420,10 @@ public class Reporte1 extends javax.swing.JFrame {
         getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 60, 60));
         getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 112, 130, 30));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consulta_reporte/Parqueo2.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 670));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -470,6 +504,7 @@ public class Reporte1 extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
