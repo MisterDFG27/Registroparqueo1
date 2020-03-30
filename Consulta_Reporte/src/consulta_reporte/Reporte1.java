@@ -108,22 +108,24 @@ public class Reporte1 extends javax.swing.JFrame {
     void mostrardatosML(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Cantidad");
+        modelo.addColumn("Monto");
 
         tbmont1.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 1 ";
+            sql ="SELECT Sum(montototal) From registro a INNER JOIN factura b on b.fk_registro = a.id_registo where fecha= '"+txtfecha.getText()+"' and fk_tipoVehiculo = 1 "
+;
+
 
         }
-        String[] datos = new String[2];
+        String[] datos = new String[1];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
+               
 
                 modelo.addRow(datos);
             }
@@ -137,22 +139,23 @@ public class Reporte1 extends javax.swing.JFrame {
     void mostrardatosMP(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Cantidad");
+        modelo.addColumn("Monto");
 
         tbmont2.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 2 ";
+            sql = "SELECT Sum(montototal) From registro a INNER JOIN factura b on b.fk_registro = a.id_registo where fecha= '"+txtfecha.getText()+"' and fk_tipoVehiculo =  2 "
+;
 
         }
-        String[] datos = new String[2];
+        String[] datos = new String[1];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
+               
                 modelo.addRow(datos);
             }
             tbmont2.setModel(modelo);
@@ -165,22 +168,22 @@ public class Reporte1 extends javax.swing.JFrame {
     void mostrardatosMM(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Cantidad");
+        modelo.addColumn("Monto");
 
         tbmont3.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT Sum(montototal), fk_tipoVehiculo From registro a INNER JOIN factura b on b.fk_registro = a.id_registro where fk_tipoVehiculo = 3 ";
+            sql ="SELECT Sum(montototal) From registro a INNER JOIN factura b on b.fk_registro = a.id_registo where fecha= '"+txtfecha.getText()+"' and fk_tipoVehiculo = 3 ";
 
         }
-        String[] datos = new String[2];
+        String[] datos = new String[1];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
 
                 datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);
+                
                 modelo.addRow(datos);
             }
             tbmont3.setModel(modelo);
@@ -249,8 +252,8 @@ public class Reporte1 extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         tbcantliv = new javax.swing.JTable();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        txtfecha = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -358,7 +361,7 @@ public class Reporte1 extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tbmont3);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 60, 60));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 90, 60));
 
         tbcantm.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tbcantm.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -372,7 +375,7 @@ public class Reporte1 extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbcantm);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 60, 60));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 90, 60));
 
         tbmont2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tbmont2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -386,7 +389,7 @@ public class Reporte1 extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tbmont2);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 60, 60));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 90, 60));
 
         tbcantp.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tbcantp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -400,7 +403,7 @@ public class Reporte1 extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(tbcantp);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 60, 60));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 90, 60));
 
         tbmont1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tbmont1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -414,7 +417,7 @@ public class Reporte1 extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tbmont1);
 
-        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 60, 60));
+        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, 90, 60));
 
         tbcantliv.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tbcantliv.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -428,15 +431,13 @@ public class Reporte1 extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(tbcantliv);
 
-        getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 60, 60));
+        getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 90, 60));
         getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 112, 130, 30));
+        getContentPane().add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 80, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consulta_reporte/Parqueo2.jpg"))); // NOI18N
         jLabel2.setText("hola");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 670));
-
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -445,6 +446,9 @@ public class Reporte1 extends javax.swing.JFrame {
         mostrardatosVL("");
         mostrardatosVP("");
         mostrardatosM("");
+        mostrardatosML("");
+        mostrardatosMP("");
+        mostrardatosMM("");
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btncierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncierreActionPerformed
@@ -515,7 +519,6 @@ public class Reporte1 extends javax.swing.JFrame {
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JButton btnreporte;
     private javax.swing.JButton btnsalir3;
-    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -541,6 +544,7 @@ public class Reporte1 extends javax.swing.JFrame {
     private javax.swing.JTable tbmont1;
     private javax.swing.JTable tbmont2;
     private javax.swing.JTable tbmont3;
+    private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txttotal;
     // End of variables declaration//GEN-END:variables
  datosP cc = new datosP();
