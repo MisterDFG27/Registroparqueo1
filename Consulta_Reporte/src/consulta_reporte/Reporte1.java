@@ -7,10 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Reporte1 extends javax.swing.JFrame {
-
+ DefaultTableModel modelo;
    
     public Reporte1() {
         initComponents();
@@ -26,7 +27,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantliv.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '1' ";
+            sql = "SELECT COUNT(*) AS Cantidad FROM registro WHERE fk_tipoVehiculo='1' AND fecha=' "+txtfecha.getText()+"'";
 
         }
         String[] datos = new String[1];
@@ -54,7 +55,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantp.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '2' ";
+            sql = "SELECT COUNT(*) AS Cantidad FROM registro WHERE fk_tipoVehiculo='2' AND fecha=' "+txtfecha.getText()+"'";
 
         }
         String[] datos = new String[1];
@@ -82,7 +83,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantm.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT count(*) From registro WHERE fk_tipovehiculo= '3' ";
+            sql = "SELECT COUNT(*) AS Cantidad FROM registro WHERE fk_tipoVehiculo='3' AND fecha=' "+txtfecha.getText()+"'";
 
         }
         String[] datos = new String[1];
@@ -192,7 +193,7 @@ public class Reporte1 extends javax.swing.JFrame {
  void mostrarMontoTotal(String valor) {
 
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Suma total");
+        modelo.addColumn("Monto total");
 
         tbMontoR.setModel(modelo);
         String sql = "";
@@ -218,8 +219,16 @@ public class Reporte1 extends javax.swing.JFrame {
         }
     }
     void limpiartabla() {
-        int filas = tbmont1.getRowCount();
-        tbmont2.getRowCount();
+          int filaseleccionada=tbcantliv.getSelectedRow();
+       if(filaseleccionada>=0){
+           modelo.removeRow(filaseleccionada);
+       }
+       else{
+           JOptionPane.showMessageDialog(null,"Tabla vacia");
+        
+         
+       /* int filas = tbmont1.getRowCount();
+       tbmont2.getRowCount();
         tbmont3.getRowCount();
         tbcantliv.getRowCount();
         tbcantp.getRowCount();
@@ -231,16 +240,11 @@ public class Reporte1 extends javax.swing.JFrame {
         tbmont3.getRowCount();
         tbcantliv.getRowCount();
         tbcantp.getRowCount();
-        tbcantm.getRowCount();
-
-         /*   tbmont1.getRowCount(0);
-             tbmont2.getRowCount(0);
-        tbmont3.getRowCount(0);
-        tbcantliv.getRowCount(0);
-        tbcantp.getRowCount(0);
-        tbcantm.getRowCount(0);*/
+        tbcantm.getRowCount();*/
 
         }
+
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -258,7 +262,6 @@ public class Reporte1 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -354,11 +357,6 @@ public class Reporte1 extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 51));
         jLabel9.setText("Tipo vehiculo");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 110, 20));
-
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel10.setText("Total Monto:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 580, 100, 30));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 420, 10));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 420, 10));
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 420, 10));
@@ -473,7 +471,7 @@ public class Reporte1 extends javax.swing.JFrame {
         ));
         jScrollPane7.setViewportView(tbMontoR);
 
-        getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 580, 120, 50));
+        getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 580, 100, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/consulta_reporte/Parqueo2.jpg"))); // NOI18N
         jLabel2.setText("hola");
@@ -494,26 +492,11 @@ public class Reporte1 extends javax.swing.JFrame {
     private void btncierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncierreActionPerformed
       mostrarMontoTotal("");
         
-        /* int liv = Integer.parseInt(tbmont1.get);
-        int pes = Integer.parseInt(tbmont2.getText());
-        int mot = Integer.parseInt(tbmont3.getText());
-
-        int suma=liv+pes+mot;
-        
-
-         txttotal.setText("" + suma);*/
+       
     }//GEN-LAST:event_btncierreActionPerformed
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
-        limpiartabla();
-
-        /* txttotal.setText("");
-       txtmon_liv.setText("");
-       txtmon_mot.setText("");
-       txtmon_pes.setText("");
-       txtcant_liv.setText("");
-       txtcant_mot.setText("");
-       txtcant_pes.setText("");*/
+      limpiartabla();
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
     private void btnsalir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalir3ActionPerformed
@@ -563,7 +546,6 @@ public class Reporte1 extends javax.swing.JFrame {
     private javax.swing.JButton btnsalir3;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
