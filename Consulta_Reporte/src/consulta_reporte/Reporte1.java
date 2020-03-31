@@ -44,6 +44,7 @@ public class Reporte1 extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+        tbcantliv.setVisible(true);
     }
 
     //cantidad vehiculo Pesado
@@ -72,6 +73,7 @@ public class Reporte1 extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+        tbcantp.setVisible(true);
     }
 
     //cantidad Moto
@@ -100,6 +102,7 @@ public class Reporte1 extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+        tbcantm.setVisible(true);
     }
 
     //monto liviano
@@ -130,6 +133,7 @@ public class Reporte1 extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+         tbmont1.setVisible(true);
     }
 
     //monto de pesados
@@ -160,6 +164,7 @@ public class Reporte1 extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+         tbmont2.setVisible(true);
     }
     //Monto de motos
     void mostrardatosMM(String valor) {
@@ -189,6 +194,7 @@ public class Reporte1 extends javax.swing.JFrame {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
+         tbmont3.setVisible(true);
     }
  void mostrarMontoTotal(String valor) {
 
@@ -217,32 +223,19 @@ public class Reporte1 extends javax.swing.JFrame {
             System.out.println(ex);
 
         }
+         tbMontoR.setVisible(true);
     }
     void limpiartabla() {
-          int filaseleccionada=tbcantliv.getSelectedRow();
-       if(filaseleccionada>=0){
-           modelo.removeRow(filaseleccionada);
-       }
-       else{
-           JOptionPane.showMessageDialog(null,"Tabla vacia");
+          tbcantliv.setVisible(false);
+         tbcantp.setVisible(false);
+         tbcantm.setVisible(false);
+        tbmont1.setVisible(false);
+         tbmont2.setVisible(false);
+        tbmont3.setVisible(false);
+         tbMontoR.setVisible(false);
+      
+
         
-         
-       /* int filas = tbmont1.getRowCount();
-       tbmont2.getRowCount();
-        tbmont3.getRowCount();
-        tbcantliv.getRowCount();
-        tbcantp.getRowCount();
-        tbcantm.getRowCount();
-        for (int i = 0; i < filas; i++) {
-
-            tbmont1.getRowCount();
-             tbmont2.getRowCount();
-        tbmont3.getRowCount();
-        tbcantliv.getRowCount();
-        tbcantp.getRowCount();
-        tbcantm.getRowCount();*/
-
-        }
 
         
     }
