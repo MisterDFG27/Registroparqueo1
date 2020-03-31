@@ -27,7 +27,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantliv.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT COUNT(*) AS Cantidad FROM registro WHERE fk_tipoVehiculo='1' AND fecha=' "+txtfecha.getText()+"'";
+            sql = "SELECT COUNT(*) AS Cantidad FROM registro WHERE fk_tipoVehiculo='1' AND fecha='"+txtfecha.getText()+"'";
 
         }
         String[] datos = new String[1];
@@ -55,7 +55,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantp.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT COUNT(*) AS Cantidad FROM registro WHERE fk_tipoVehiculo='2' AND fecha=' "+txtfecha.getText()+"'";
+            sql = "SELECT COUNT(*) AS Cantidad FROM registro WHERE fk_tipoVehiculo='2' AND fecha='"+txtfecha.getText()+"'";
 
         }
         String[] datos = new String[1];
@@ -83,7 +83,7 @@ public class Reporte1 extends javax.swing.JFrame {
         tbcantm.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT COUNT(*) AS Cantidad FROM registro WHERE fk_tipoVehiculo='3' AND fecha=' "+txtfecha.getText()+"'";
+            sql = "SELECT COUNT(*) AS Cantidad FROM registro WHERE fk_tipoVehiculo='3' AND fecha='"+txtfecha.getText()+"'";
 
         }
         String[] datos = new String[1];
