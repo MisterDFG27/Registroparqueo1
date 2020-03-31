@@ -11,10 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Reporte1 extends javax.swing.JFrame {
 
-    /**
-     *
-     * Creates new form Reporte1
-     */
+   
     public Reporte1() {
         initComponents();
         setLocationRelativeTo(null);
